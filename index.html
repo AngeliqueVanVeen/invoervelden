@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>   1) Gebruiker kan velden invullen.
+              2) Op knop drukken.
+              3) Dan wordt de invoer op het scherm weggeschreven in een zin.
+    </title>
+  </head>
+
+  <body>
+    <h2>Bouwsteen: Invoervelden en wegschrijven op scherm.</h2>                         <br />
+
+    <form onsubmit="ABCD(); return false;">
+      Naam:     <input type="text"   id="AA"></input>                                   <br />
+      Leeftijd: <input type="number" id="BB"></input>                                   <br />
+      E-mail:   <input type="email"  id="CC"></input>                                   <br /><br />
+
+      Vrije invoer: <textarea id="DD" cols=40 rows=5></textarea>                        <br /><br />
+
+      <input id="KK" type="checkbox" class="checkbox">HTML                              <br />
+      <input id="LL" type="checkbox" class="checkbox">CSS                         			<br />
+      <input id="MM" type="checkbox" class="checkbox">JavaScript                  			<br /><br />
+
+      <input type="submit" value="SUBMIT">                                              <br /><br /><br /><br />
+    </form>
+
+
+    Mijn naam is <b id="AAAA">Angela</b>.                                               <br />
+    Ik ben <b id="BBBB">30</b> jaar oud.                                                <br />
+    Mijn e-mailadres is <b id="CCCC">info@mail.nl</b>.                                  <br /><br />
+
+    Vrije Invoer: <i id="DDDD">Nog geen vrije invoer ingegeven.</i>                     <br /><br />
+
+    <b id="NN"></b>
+
+
+    <script>
+      function ABCD() {
+        document.getElementById('AAAA').innerHTML = document.getElementById('AA').value ;
+        document.getElementById('BBBB').innerHTML = document.getElementById('BB').value ;
+        document.getElementById('CCCC').innerHTML = document.getElementById('CC').value ;
+        document.getElementById('DDDD').innerHTML = document.getElementById('DD').value ;
+
+//  Let op: value.length gebruiken, want innerHTML.length werkt niet met Chrome wel met Edge (die is minder streng).
+
+        if (document.getElementById('DD').value.length < 5)  {
+          alert("De tekst is minder dan 5 tekens.")
+          }
+        if (document.getElementById('DD').value.length > 30)  {
+          alert("De tekst is meer dan 30 tekens.")
+          }
+
+
+        if (document.getElementById('KK').checked && document.getElementById('LL').checked )  {
+          document.getElementById('NN').innerHTML = 'Ik ben een front-end developer.';
+    			}
+    			else {
+    				document.getElementById('NN').innerHTML = '';
+      			}
+
+      }
+
+    </script>
+  </body>
+</html>
